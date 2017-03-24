@@ -1,1 +1,1 @@
-au BufRead  */modsec_*.log* setfiletype modseclog
+au BufRead  */modsec_debug.log*  setfiletype modseclog
