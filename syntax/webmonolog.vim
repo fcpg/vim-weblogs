@@ -22,7 +22,7 @@ syn match   webmonologKV         /\v"[^"]*"\s*:\s*"[^"]*"/ contained transparent
 syn match   webmonologKVIP       /\v"[iI][pP]"\s*:\s*"[^"]*"/ contained contains=webmonologIP transparent
 syn match   webmonologKVURL      /\v"[uU][rR][lL]"\s*:\s*"[^"]*"/ contained contains=webmonologURL transparent
 syn match   webmonologKVUID      /\v"[uU][nN][iI][qQ][uU][eE]_[iI][dD]"\s*:\s*"[^"]*"/ contained contains=webmonologUID transparent
-syn match   webmonologKVCode     /\v"[hH][tT][tT][tT][pP]_[cC][oO][dD][eE]"\s*:\s*("[^"]*"|\d+)/ contained contains=webmonologCode transparent
+syn match   webmonologKVCode     /\v"[hH][tT][tT][pP]_[cC][oO][dD][eE]"\s*:\s*("[^"]*"|\d+)/ contained contains=webmonologCode transparent
 
 syn match   webmonologIP         /\v\zs\d+\.\d+\.\d+\.\d+\ze/ contained contains=webmonologLocal,webmonologLAN
 syn match   webmonologLAN        /\v192\.168\.\d+\.\d+/ contained
