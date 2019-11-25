@@ -8,7 +8,7 @@ syntax clear
 syntax case match
 
 syn match   webmonologTime       /\v^\zs\[[^]]+\]\ze\s/
-syn match   webmonologLevel      /\v\s\zs\u+\.\u+\ze[\s:]/ contains=webmonologLevelInfo,webmonologLevelWarn,webmonologLevelErr
+syn match   webmonologLevel      /\v\s\zs\u\w*\.\u+\ze[\s:]/ contains=webmonologLevelInfo,webmonologLevelWarn,webmonologLevelErr
 
 syn match   webmonologLevelInfo  /\v(DEBUG|INFO|NOTICE)/ contained
 syn match   webmonologLevelWarn  /\v(WARNING|WARN)/ contained
@@ -16,12 +16,13 @@ syn match   webmonologLevelErr   /\v(ERROR|ERR|CRITICAL|CRIT|EMERGENCY|EMERG)/ c
 
 syn match   webmonologFunction   /\v\s\zs\i+\(\)\ze[\s:]/
 
-syn match   webmonologContext    /\v\s\zs\{.*\}\s*$/ contains=webmonologKV,webmonologKVIP,webmonologKVURL,webmonologKVUID
+syn match   webmonologContext    /\v\s\zs\{.*\}\s*$/ contains=webmonologKV,webmonologKVIP,webmonologKVURL,webmonologKVUID,webmonologKVCode
 
 syn match   webmonologKV         /\v"[^"]*"\s*:\s*"[^"]*"/ contained transparent
 syn match   webmonologKVIP       /\v"[iI][pP]"\s*:\s*"[^"]*"/ contained contains=webmonologIP transparent
 syn match   webmonologKVURL      /\v"[uU][rR][lL]"\s*:\s*"[^"]*"/ contained contains=webmonologURL transparent
 syn match   webmonologKVUID      /\v"[uU][nN][iI][qQ][uU][eE]_[iI][dD]"\s*:\s*"[^"]*"/ contained contains=webmonologUID transparent
+syn match   webmonologKVCode     /\v"[hH][tT][tT][tT][pP]_[cC][oO][dD][eE]"\s*:\s*"[^"]*"/ contained contains=webmonologCode transparent
 
 syn match   webmonologIP         /\v\zs\d+\.\d+\.\d+\.\d+\ze/ contained contains=webmonologLocal,webmonologLAN
 syn match   webmonologLAN        /\v192\.168\.\d+\.\d+/ contained
@@ -33,6 +34,8 @@ syn match   webmonologLocal      /\v::1/ contained
 
 syn match   webmonologURL        /\v:\s*"\zs[^"]*\ze"/ contained
 syn match   webmonologUID        /\v:\s*"\zs[^"]*\ze"/ contained
+syn match   webmonologCode       /\v:\s*"\zs[^"]*\ze"/ contained
+syn match   webmonologCode       /\v:\s*\zs\d+/ contained
 
 
 hi link webmonologTime       Comment
@@ -52,5 +55,6 @@ hi link webmonologUID        Identifier
 hi link webmonologLocal      Special
 hi link webmonologLAN        PreProc
 hi link webmonologIP         Number
+hi link webmonologCode       Number
 
 let b:current_syntax = "webmonolog"
